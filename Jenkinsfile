@@ -45,12 +45,6 @@ pipeline {
     	   }
 	}
 
-	stage('Security Scan') {
-           steps {
-              echo 'Running security scan'
-    	   }
-    	}
-
 	stage('Package') {
             steps {
                 sh '''
