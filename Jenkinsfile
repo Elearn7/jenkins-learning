@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-	stage('Branch Info') {
+	stage('Branch Infoinformation) {
             steps {
                 echo "Branch Name: ${env.BRANCH_NAME}"
 		echo "Change ID: ${env.CHANGE_ID}"
