@@ -6,7 +6,8 @@ pipeline {
         stage('GitHub Pipeline') {
             steps {
                 echo 'Pipeline loaded from GitHub'
-            }
+		echo 'Pipeline loaded from GitH*b'echo 'Pipeline loaded from GitH*b'
+		echo 'Version 2 of my pipeline'*            }
         }
 
         stage('Environment Info') {
