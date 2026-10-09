@@ -39,6 +39,12 @@ pipeline {
 		}
 	}
 
+	stage('Feature Branch Stage') {
+   	   steps {
+              echo 'Feature branch code'
+    	   }
+	}
+
 	stage('Package') {
             steps {
                 sh '''
