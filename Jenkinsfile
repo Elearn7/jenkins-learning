@@ -36,6 +36,7 @@ pipeline {
         stage('Security Scan') {
 	   steps {
 	      echo "running security checks"
+		}
 	}
 
 	stage('Package') {
