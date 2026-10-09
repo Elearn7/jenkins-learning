@@ -10,6 +10,16 @@ pipeline {
             }
         }
 
+	stage('Branch Info') {
+            steps {
+                echo "Branch Name: ${env.BRANCH_NAME}"
+		echo "Change ID: ${env.CHANGE_ID}"
+		echo "Change Branch: ${env.CHANGE_BRANCH}"
+		echo "Change Target: ${env.CHANGE_TARGET}"
+            }
+        }
+
+
         stage('Build') {
             steps {
                 sh '''
