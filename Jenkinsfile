@@ -38,7 +38,8 @@ pipeline {
                 sh '''
                     tar -czf application.tar.gz build/
                 '''
-            }
+		archiveArtifacts artifacts: 'application.tar.gz'
+           }
         }
 
     }
