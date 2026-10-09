@@ -10,6 +10,12 @@ pipeline {
             }
         }
 
+	stage('Version Banner') {
+    	   steps {
+              echo 'Branch specific feature'
+   	   } 
+	}
+
         stage('Build') {
             steps {
                 sh '''
