@@ -1,24 +1,51 @@
 pipeline {
+
     agent any
 
     stages {
 
-        stage('GitHub Pipeline') {
+        stage('Checkout') {
             steps {
-                echo 'Pipeline loaded from GitHub'
-		echo 'Version 2 of my pipeline'
-		}          
+                echo 'Source code retrieved from GitHub'
+            }
         }
 
-        stage('Environment Info') {
+        stage('Build') {
             steps {
                 sh '''
-                    echo "Build Number: $BUILD_NUMBER"
-                    echo "Node Name: $NODE_NAME"
-                    hostname
+                    mkdir -p build
+
+                    echo "Application Build" > build/app.txt
+
+                    echo "Build Number: $BUILD_NUMBER" >> build/app.txt
+
+                    echo "Build Date: $(date)" >> build/app.txt
                 '''
             }
         }
 
+        stage('Test') {
+            steps {
+                sh '''
+                    echo "Running tests..."
+                    echo "All tests passed"
+                '''
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh '''
+                    tar -czf application.tar.gz build/
+                '''
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully'
+        }
     }
 }
