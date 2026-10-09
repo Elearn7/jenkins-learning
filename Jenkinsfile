@@ -7,7 +7,8 @@ pipeline {
             steps {
                 echo 'Pipeline loaded from GitHub'
 		echo 'Pipeline loaded from GitH*b'echo 'Pipeline loaded from GitH*b'
-		echo 'Version 2 of my pipeline'*            }
+		echo 'Version 2 of my pipeline'*            
+			}
         }
 
         stage('Environment Info') {
