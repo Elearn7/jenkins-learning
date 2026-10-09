@@ -33,7 +33,12 @@ pipeline {
             }
         }
 
-        stage('Package') {
+        stage('Security Scan') {
+	   steps {
+	      echo "running security checks"
+	}
+
+	stage('Package') {
             steps {
                 sh '''
                     tar -czf application.tar.gz build/
