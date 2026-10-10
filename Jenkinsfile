@@ -55,6 +55,7 @@ pipeline {
                 sh '''
                     echo "Application: $APP_NAME"
                     echo "Branch: $BRANCH_NAME"
+                    echo "Build Number: $BUILD_NUMBER"
                     echo "Building application..."
                 '''
 
