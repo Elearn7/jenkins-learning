@@ -34,6 +34,16 @@ pipeline {
             }
         }
 
+
+	stage('Validation') {
+    	   steps {
+        	sh '''
+            	echo "Running validation"
+        	'''
+    	   }
+	}
+
+
 	stage('PR Information') {
     	    steps {
 
