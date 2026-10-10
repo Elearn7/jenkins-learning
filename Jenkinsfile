@@ -34,6 +34,12 @@ pipeline {
             }
         }
 
+	stage('PR Lab') {
+    	   steps {
+              echo 'Running PR validation'
+    	   }
+	}
+
         stage('Test') {
             steps {
                 sh '''
