@@ -28,15 +28,18 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+	stage('Deploy') {
 
-            when {
-                branch 'main'
-            }
+    	   when {
 
-            steps {
-                echo 'Deploying to production'
-            }
-        }
-    }
-}
+              anyOf {
+                 branch 'main'
+                 branch 'develop'
+        	}
+
+      	  } 
+
+    	  steps {
+             echo 'Deploying'
+    		}
+	}
