@@ -34,6 +34,19 @@ pipeline {
             }
         }
 
+	stage('PR Information') {
+    	    steps {
+
+        	echo "Branch: ${env.BRANCH_NAME}"
+
+        	echo "Change ID: ${env.CHANGE_ID}"
+
+        	echo "Change Target: ${env.CHANGE_TARGET}"
+
+        	echo "Source Branch: ${env.CHANGE_BRANCH}"
+    		}
+	}
+
 	stage('PR Lab') {
     	   steps {
               echo 'Running PR validation'
