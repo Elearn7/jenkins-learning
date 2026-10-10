@@ -41,4 +41,63 @@ pipeline {
 
                     } else {
 
-               
+                        echo "Main/Develop Branch Build"
+
+                    }
+
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+
+                sh '''
+                    echo "Application: $APP_NAME"
+                    echo "Branch: $BRANCH_NAME"
+                    echo "Build Number: $BUILD_NUMBER"
+                    echo "Building application..."
+                '''
+
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests'
+            }
+        }
+
+        stage('Deploy') {
+
+            when {
+
+                anyOf {
+                    branch 'main'
+                    branch 'develop'
+                }
+
+            }
+
+            steps {
+                echo "Deploying to ${env.DEPLOY_ENV}"
+            }
+        }
+    }
+
+    post {
+
+        success {
+            echo 'Pipeline completed successfully'
+        }
+
+        failure {
+            echo 'Pipeline failed'
+        }
+
+        always {
+            echo 'Pipeline execution finished'
+        }
+
+    }
+}
